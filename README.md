@@ -1,6 +1,6 @@
 # ytget - YouTube Video and Audio Downloader for Discord
 
-<img src="https://i.imgur.com/hJJYpmB.png" width="200">
+<img src="https://i.imgur.com/5iF3zq7.png" width="200">
 
 ## Overview
 
