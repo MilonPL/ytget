@@ -27,6 +27,17 @@ ytget is a versatile Discord bot that simplifies the process of downloading vide
 - `/github`: Show the GitHub page.
 - `/info`: Learn more about the bot. 
 
+### How You Can Help
+
+ytget is an open-source project dedicated to making YouTube file downloads fast and easy for everyone. We believe in free access to valuable content, and that's why ytget is available to you at no cost.
+However, maintaining the cloud infrastructure that powers ytget comes with expenses, including server hosting and bandwidth costs. We rely on the support of our generous users to keep ytget running smoothly and free for all.
+
+If you find ytget useful and want to support our project, please consider making a donation. Your contributions go directly towards covering the infrastructure expenses and help ensure ytget remains accessible to everyone.
+
+**Donate to ytget: []**
+
+Every donation, no matter the size, makes a difference and helps us sustain the service. We greatly appreciate your support and generosity.
+
 ## License
 
 This project is licensed under the [Mozzila Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/) - see the [LICENSE](LICENSE.txt) file for details.
