@@ -9,7 +9,7 @@ ytget is a versatile Discord bot that simplifies the process of downloading vide
 ## Features
 
 - Download YouTube videos and audio effortlessly.
-- Convert YouTube videos to MP3 audio files.
+- Convert YouTube videos to M4A audio files.
 - High-quality downloads with YT-DLP.
 - Simple and intuitive Discord bot interface.
 - Customizable download settings.
