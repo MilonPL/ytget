@@ -27,14 +27,6 @@ ytget is a versatile Discord bot that simplifies the process of downloading vide
 - `/github`: Show the GitHub page.
 - `/info`: Learn more about the bot. 
 
-### How You Can Help
-
-If you find ytget useful and want to support our project, please consider making a donation. Your contributions go directly towards covering the infrastructure expenses and help ensure ytget remains accessible to everyone.
-
-**Donate to ytget: [insert something here soonTM]**
-
-Every donation, no matter the size, makes a difference and helps us sustain the service. We greatly appreciate your support and generosity.
-
 ## License
 
 This project is licensed under the [Mozzila Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/) - see the [LICENSE](LICENSE.txt) file for details.
