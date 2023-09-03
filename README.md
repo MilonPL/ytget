@@ -29,4 +29,4 @@ ytget is a versatile Discord bot that simplifies the process of downloading vide
 
 ## License
 
-This project is licensed under the [Mozzila Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/) - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [Mozzila Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/) - see the [LICENSE](LICENSE.txt) file for details.
