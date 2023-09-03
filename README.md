@@ -1,5 +1,6 @@
 # ytget - YouTube Video and Audio Downloader for Discord
 
+![](https://i.imgur.com/hJJYpmB.png)
 
 ## Overview
 
@@ -16,7 +17,7 @@ ytget is a versatile Discord bot that simplifies the process of downloading vide
 
 ## Usage
 
-1. Invite ytget to your Discord server.
+1. [Invite ytget](https://discord.com/api/oauth2/authorize?client_id=1146905495320400082&permissions=277025770560&scope=applications.commands%20bot "Invite ytget") to your Discord server.
 2. Use simple commands to start downloading your favorite YouTube content.
 3. Customize download settings to suit your preferences.
 4. Enjoy your saved videos and audio offline!
@@ -24,8 +25,7 @@ ytget is a versatile Discord bot that simplifies the process of downloading vide
 ## Commands
 
 - `/download`: Download a YouTube video.
-- `/github`: Show the GitHub page.
-- `/info`: Learn more about the bot. 
+- `/ping`: Check the ping.
 
 ## License
 
