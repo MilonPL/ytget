@@ -1,0 +1,27 @@
+{
+  "name": "ytget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Milon",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MilonPL/ytget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MilonPL/ytget/issues"
+  },
+  "homepage": "https://github.com/MilonPL/ytget#readme",
+  "dependencies": {
+    "@azure/identity": "^3.3.0",
+    "@azure/storage-blob": "^12.15.0",
+    "crypto": "^1.0.1",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "youtube-dl-exec": "^2.4.7"
+  }
+}
