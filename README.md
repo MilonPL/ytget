@@ -24,8 +24,9 @@ ytget is a versatile Discord bot that simplifies the process of downloading vide
 
 ## Commands
 
-- `/download`: Download a YouTube video.
+- `/get`: Download a YouTube video.
 - `/ping`: Check the ping.
+- `/about`: Get more info about the project.
 
 ## License
 
