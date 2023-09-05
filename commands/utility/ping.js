@@ -16,7 +16,7 @@ module.exports = {
 				{ name: ':stopwatch: Uptime:', value: `${Math.round(interaction.client.uptime / 60000)} minutes` },
 				{ name: ':round_pushpin: Latency:', value: `${sent.createdTimestamp - interaction.createdTimestamp}ms`})
 			.setTimestamp()
-			.setFooter({ text: 'ytget', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+			.setFooter({ text: 'ytget', iconURL: 'https://i.imgur.com/5iF3zq7.png' });
 		await interaction.editReply({ embeds: [embedPinged] });
 	},
 };
