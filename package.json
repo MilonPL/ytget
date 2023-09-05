@@ -19,10 +19,8 @@
   "dependencies": {
     "@azure/identity": "^3.3.0",
     "@azure/storage-blob": "^12.15.0",
-    "crypto": "^1.0.1",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
-    "fs": "^0.0.1-security",
     "youtube-dl-exec": "^2.4.7"
   }
 }
