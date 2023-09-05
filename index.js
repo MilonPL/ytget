@@ -1,4 +1,4 @@
-// Require the necessary discord.js classes
+// Require the necessary modules
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js'); 
@@ -9,7 +9,7 @@ if (!token) throw Error("Token not found");
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-//Initialize command handling
+// Initialize command handling
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
