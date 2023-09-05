@@ -1,8 +1,8 @@
 // Require the necessary modules
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const youtubedl = require('youtube-dl-exec');
-const crypto = require('crypto');
-const fs = require('fs');
+const crypto = require('node:crypto');
+const fs = require('node:fs');
 
 // Azure Storage dependency
 const {
@@ -30,7 +30,7 @@ const containerName = `downloaded`;
 // Main command
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('download')
+		.setName('get')
 		.setDescription('Download a YouTube video!')
 		.addStringOption(option =>
 			option
@@ -74,7 +74,7 @@ module.exports = {
 					output: id + '.%(ext)s',
 					noPart: true,
 					noPlaylist: true,
-					maxFilesize: '250M',
+					maxFilesize: '500MB',
 					ignoreErrors: true,
 					format: format
 				})
