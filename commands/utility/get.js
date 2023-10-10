@@ -74,7 +74,7 @@ module.exports = {
 					output: id + '.%(ext)s',
 					noPart: true,
 					noPlaylist: true,
-					maxFilesize: '500MB',
+					maxFilesize: '500M',
 					ignoreErrors: true,
 					format: format
 				})
