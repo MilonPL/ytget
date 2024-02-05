@@ -1,4 +1,4 @@
-## Privacy Policy - ytget
+## Terms of Service
 1.  By using our Discord bot, you agree to comply with these Terms of Service.
 2.  You must use the bot in accordance with Discord's Terms of Service and Community Guidelines.
 3.  You agree not to use the bot for any illegal or unauthorized purpose.
