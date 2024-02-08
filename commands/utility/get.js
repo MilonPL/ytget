@@ -5,6 +5,8 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const ffmpeg = require('fluent-ffmpeg');
 
+// It actually took me a lot longer to implement mp3 functionality, no wonder past Milon didn't do it
+// What the actual fuck is wrong with ffmpeg
 
 // Azure Storage dependency
 const {
@@ -19,6 +21,8 @@ const storageAccountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
 if (!storageAccountName) throw Error("Azure Storage Account Name not found");
 if (!storageAccountKey) throw Error("Azure Storage Account Key not found");
 
+// This assumes you have ffmpeg and ffprobe on your C drive
+// You don't actually need ffprobe
 ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe")
 ffmpeg.setFfprobePath("C:/ffmpeg/bin/ffprobe.exe")
 
@@ -70,7 +74,7 @@ module.exports = {
 					{ name: ':movie_camera: File format:', value: `${format}` }
 			)
 				.setTimestamp()
-				.setFooter({ text: 'This can take several minutes, depending on the video size.' })
+				.setFooter({ text: 'This can take a while, depending on the video size.' })
 			await interaction.reply({ embeds: [embedDownloading] });
 			if (format == 'mp3') {
 				const downloadPromise = new Promise((resolve, reject) => {
@@ -92,6 +96,7 @@ module.exports = {
 						});
 				});
 				const localFilePath = await downloadPromise; // Wait for the download to finish
+				// I LOVE PROMISES
 				const convertToMp3Promise = new Promise((resolve, reject) => {
 					const command = ffmpeg(localFilePath)
 					  .toFormat("mp3")
@@ -108,6 +113,7 @@ module.exports = {
 						reject(err); // Reject the Promise if an error occurs during conversion
 					  });
 				  });
+				  // If your code doesn't work, just put it in a try catch block
 				  try {
 					await convertToMp3Promise; // Wait for the conversion to finish
 				  } catch (error) {
