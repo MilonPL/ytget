@@ -3,6 +3,8 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const youtubedl = require('youtube-dl-exec');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
+const ffmpeg = require('fluent-ffmpeg');
+
 
 // Azure Storage dependency
 const {
@@ -16,6 +18,9 @@ const storageAccountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const storageAccountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
 if (!storageAccountName) throw Error("Azure Storage Account Name not found");
 if (!storageAccountKey) throw Error("Azure Storage Account Key not found");
+
+ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe")
+ffmpeg.setFfprobePath("C:/ffmpeg/bin/ffprobe.exe")
 
 // Create credential
 const sharedKeyCredential = new StorageSharedKeyCredential(
@@ -46,7 +51,8 @@ module.exports = {
 					{ name: 'mp4', value: 'mp4' },
 					{ name: 'm4a', value: 'm4a' },
 					{ name: '3gp', value: '3gp' },
-					{ name: 'webm', value: 'webm' }
+					{ name: 'webm', value: 'webm' },
+					{ name: 'mp3', value: 'mp3' }
 				)
 		),
 	async execute(interaction) {
@@ -66,7 +72,48 @@ module.exports = {
 				.setTimestamp()
 				.setFooter({ text: 'This can take several minutes, depending on the video size.' })
 			await interaction.reply({ embeds: [embedDownloading] });
-
+			if (format == 'mp3') {
+				const downloadPromise = new Promise((resolve, reject) => {
+					youtubedl(link, {
+						restrictFilenames: true,
+						output: id + '.mp4',
+						noPart: true,
+						noPlaylist: true,
+						maxFilesize: '500M',
+						ignoreErrors: true,
+						format: 'mp4'
+					})
+						.then(info => {
+							const localFilePath = `${id}.mp4`;
+							resolve(localFilePath); // Resolve the Promise with the local file path
+						})
+						.catch(error => {
+							reject(error); // Reject the Promise if there's an error
+						});
+				});
+				const localFilePath = await downloadPromise; // Wait for the download to finish
+				const convertToMp3Promise = new Promise((resolve, reject) => {
+					const command = ffmpeg(localFilePath)
+					  .toFormat("mp3")
+					  .save(`${id}.${format}`);
+				  
+					command
+					  .on('end', () => {
+						console.log('File has been converted successfully');
+						fs.unlinkSync(`${id}.mp4`)
+						resolve(); // Resolve the Promise when the conversion is complete
+					  })
+					  .on('error', (err) => {
+						console.log('An error occurred during conversion: ' + err.message);
+						reject(err); // Reject the Promise if an error occurs during conversion
+					  });
+				  });
+				  try {
+					await convertToMp3Promise; // Wait for the conversion to finish
+				  } catch (error) {
+					console.error("Conversion failed:", error);
+				  }
+			} else {
 			// Download the YouTube video with youtube-dl-exec and wrap it in a Promise
 			const downloadPromise = new Promise((resolve, reject) => {
 				youtubedl(link, {
@@ -87,12 +134,13 @@ module.exports = {
 					});
 			});
 			const localFilePath = await downloadPromise; // Wait for the download to finish
+			}
 			const blobName = `${id}.${format}`;
 			const blockBlobClient = new BlockBlobClient( // Create the blob
 			`${baseUrl}/${containerName}/${blobName}`,
 			 sharedKeyCredential
 			);
-			await blockBlobClient.uploadFile(localFilePath); // Send data to blob
+			await blockBlobClient.uploadFile(`${id}.${format}`); // Send data to blob
 			console.log(`Blob ${blockBlobClient.url} created`);
 			fs.unlinkSync(`${id}.${format}`)
 			// Success embed here
