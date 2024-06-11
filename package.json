@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/MilonPL/ytget#readme",
   "dependencies": {
-    "@azure/identity": "^3.3.0",
+    "@azure/identity": "^3.4.2",
     "@azure/storage-blob": "^12.15.0",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
