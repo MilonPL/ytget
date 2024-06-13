@@ -19,7 +19,7 @@
   "dependencies": {
     "@azure/identity": "^4.2.1",
     "@azure/storage-blob": "^12.15.0",
-    "discord.js": "^14.13.0",
+    "discord.js": "^14.15.3",
     "dotenv": "^16.3.1",
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",
